@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ Color InActiveColor = Color(0xffDBD7EC);
 Color KBackgroundColor = Color(0xffFAFAFA);
 Color KTransparenColor = Colors.transparent;
 Color Kunavalibel = Color(0xffEBECF1);
+Color avalibel = Color(0xffE0D9FF);
 
 //TextStyle
 TextStyle BlackTextStyle = GoogleFonts.poppins(

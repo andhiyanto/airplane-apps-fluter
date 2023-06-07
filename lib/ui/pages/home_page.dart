@@ -2,6 +2,7 @@ import 'package:airplane/ui/widgets/destination_tile.dart';
 import 'package:flutter/material.dart';
 import '../../shared/theme.dart';
 import '../widgets/destination_card.dart';
+// ignore: duplicate_import
 import '../widgets/destination_tile.dart';
 
 class HomePage extends StatelessWidget {

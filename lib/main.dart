@@ -1,6 +1,7 @@
 import 'package:airplane/ui/pages/main_page.dart';
 import 'package:airplane/ui/pages/signup_page.dart';
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'ui/pages/splash_page.dart';
 import 'ui/pages/getstarted.dart';
 import 'ui/pages/bonus_page.dart';
