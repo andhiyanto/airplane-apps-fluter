@@ -1,3 +1,5 @@
+import 'package:airplane/ui/pages/Success_Checkout.dart';
+import 'package:airplane/ui/widgets/customeBookingDetail.dart';
 import 'package:airplane/ui/widgets/customeButton.dart';
 import 'package:airplane/ui/widgets/seat_item.dart';
 import 'package:flutter/material.dart';
@@ -153,40 +155,146 @@ class CheckOutPage extends StatelessWidget {
             ),
           ),
           //NOTE: BOOKING DETAILS ITEM
+          BookDetail(
+              title: 'Traveler',
+              valueText: '2 person',
+              valueColor: KeyBlackColor),
+          BookDetail(
+              title: 'Seat', valueText: 'A3, B3', valueColor: KeyBlackColor),
+          BookDetail(
+              title: 'Insurance', valueText: 'Yes', valueColor: KeyGreenColor),
+          BookDetail(
+              title: 'Refundable', valueText: 'NO', valueColor: KeyRedColor),
+          BookDetail(title: 'VAT', valueText: '45%', valueColor: KeyBlackColor),
+          BookDetail(
+              title: 'Price',
+              valueText: 'IDR 8.500.690',
+              valueColor: KeyBlackColor),
+          BookDetail(
+              title: 'Grand Total',
+              valueText: 'IDR 12.000.000',
+              valueColor: PrimaryColor),
+          //NOTE: PAYMENT DETAIL
+        ],
+      ),
+    );
+  }
+
+  Widget payment() {
+    return Container(
+      margin: EdgeInsets.only(top: 30),
+      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(18),
+        color: KeyWhiteColor,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Payment Details",
+            style: BlackTextStyle.copyWith(fontSize: 16, fontWeight: semibold),
+          ),
           Row(
             children: [
               Container(
-                child: Column(
+                margin: EdgeInsets.only(top: 16),
+                child: Row(
                   children: [
                     Container(
-                      width: 16,
-                      height: 16,
+                      margin: EdgeInsets.only(right: 16),
+                      width: 100,
+                      height: 70,
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18),
                         image: DecorationImage(
-                          image: AssetImage('assets/icon_cek.png'),
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/image_card.png"),
+                        ),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(right: 6),
+                              width: 24,
+                              height: 24,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage("assets/icon_plane.png"),
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "PAY",
+                              style: WhiteTextStyle.copyWith(
+                                  fontSize: 16, fontWeight: semibold),
+                            ),
+                          ],
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
-                width: 6,
-              ),
-              Text(
-                'Traveler',
-                style: BlackTextStyle.copyWith(fontSize: 14),
-              ),
-              Spacer(),
-              Text(
-                '2 person',
-                style: BlackTextStyle.copyWith(fontSize: 14),
+              Container(
+                margin: EdgeInsets.only(top: 16),
+                child: Row(children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "IDR 80.400.000",
+                        style: BlackTextStyle.copyWith(
+                            fontSize: 18, fontWeight: semibold),
+                      ),
+                      Text(
+                        "Current Balance",
+                        style: GreyTextStyle.copyWith(
+                            fontSize: 14, fontWeight: light),
+                      ),
+                    ],
+                  )
+                ]),
               ),
             ],
           ),
         ],
       ),
-      //NOTE: BOOKING DETAILS TEXT
+    );
+  }
+
+  Widget paynowbutton(BuildContext context) {
+    return ButtonCustome(
+      title: 'Pay Now',
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SuccsesCheckout(),
+          ),
+        );
+      },
+      margin: EdgeInsets.only(top: 30),
+    );
+  }
+
+  Widget tacbutton() {
+    return Container(
+      alignment: Alignment.center,
+      // ignore: prefer_const_constructors
+      margin: EdgeInsets.only(
+        top: 30,
+        bottom: 30,
+      ),
+      child: Text(
+        'Terms and Conditions',
+        style: GreyTextStyle.copyWith(
+            fontSize: 16,
+            fontWeight: light,
+            decoration: TextDecoration.underline),
+      ),
     );
   }
 
@@ -198,6 +306,9 @@ class CheckOutPage extends StatelessWidget {
         children: [
           route(),
           destinationTile(),
+          payment(),
+          paynowbutton(context),
+          tacbutton(),
         ],
       ),
     );
